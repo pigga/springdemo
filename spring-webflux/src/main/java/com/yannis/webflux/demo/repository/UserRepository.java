@@ -27,8 +27,6 @@ public class UserRepository {
     }
 
     public Flux<User> findAll() {
-        List<User> userList = new ArrayList<>();
-        userMap.entrySet().stream().forEach(entry -> userList.add(entry.getValue()));
-        return Flux.fromStream(userList.stream());
+        return Flux.fromIterable(userMap.values());
     }
 }
